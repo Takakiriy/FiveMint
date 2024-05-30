@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A50D93A2BE1E48A00C04FE8 /* AssetsSource in Resources */ = {isa = PBXBuildFile; fileRef = 1A50D9392BE1E48A00C04FE8 /* AssetsSource */; };
+		1A7641DA2BAAC1DC00E6EB0B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7641D92BAAC1DC00E6EB0B /* ExtensionDelegate.swift */; };
+		1A7641DC2BAAC2DA00E6EB0B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7641DB2BAAC2DA00E6EB0B /* Card.swift */; };
+		1A7641DE2BAAC2DF00E6EB0B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7641DD2BAAC2DF00E6EB0B /* CardView.swift */; };
+		1A7641E02BAAC33A00E6EB0B /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7641DF2BAAC33A00E6EB0B /* ReminderViewModel.swift */; };
+		1A88F7A72BA6F13E003D6C2B /* FiveMint Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1A88F7A62BA6F13E003D6C2B /* FiveMint Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1A88F7AC2BA6F13E003D6C2B /* FiveMintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F7AB2BA6F13E003D6C2B /* FiveMintApp.swift */; };
+		1A88F7AE2BA6F13E003D6C2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A88F7AD2BA6F13E003D6C2B /* ContentView.swift */; };
+		1A88F7B02BA6F13F003D6C2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A88F7AF2BA6F13F003D6C2B /* Assets.xcassets */; };
+		1A88F7B32BA6F13F003D6C2B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A88F7B22BA6F13F003D6C2B /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A88F7A82BA6F13E003D6C2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A88F79A2BA6F13E003D6C2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A88F7A52BA6F13E003D6C2B;
+			remoteInfo = "FiveMint Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A88F7B92BA6F13F003D6C2B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1A88F7A72BA6F13E003D6C2B /* FiveMint Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1A50D9392BE1E48A00C04FE8 /* AssetsSource */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AssetsSource; sourceTree = "<group>"; };
+		1A5976792BB01CCF0036E629 /* specifications.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = specifications.yaml; sourceTree = "<group>"; };
+		1A7641D92BAAC1DC00E6EB0B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		1A7641DB2BAAC2DA00E6EB0B /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		1A7641DD2BAAC2DF00E6EB0B /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1A7641DF2BAAC33A00E6EB0B /* ReminderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
+		1A88F7A02BA6F13E003D6C2B /* FiveMint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FiveMint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A88F7A62BA6F13E003D6C2B /* FiveMint Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FiveMint Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A88F7AB2BA6F13E003D6C2B /* FiveMintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveMintApp.swift; sourceTree = "<group>"; };
+		1A88F7AD2BA6F13E003D6C2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1A88F7AF2BA6F13F003D6C2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A88F7B22BA6F13F003D6C2B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1AF985D22BA7133E00149F3F /* FiveMint-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FiveMint-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A88F7A32BA6F13E003D6C2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A76EB2C2BAC8A5F00CC2EAF /* Bundles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Bundles;
+			sourceTree = "<group>";
+		};
+		1A88F7992BA6F13E003D6C2B = {
+			isa = PBXGroup;
+			children = (
+				1A88F7AA2BA6F13E003D6C2B /* FiveMint Watch App */,
+				1A5976792BB01CCF0036E629 /* specifications.yaml */,
+				1A88F7A12BA6F13E003D6C2B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A88F7A12BA6F13E003D6C2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A88F7A02BA6F13E003D6C2B /* FiveMint.app */,
+				1A88F7A62BA6F13E003D6C2B /* FiveMint Watch App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A88F7AA2BA6F13E003D6C2B /* FiveMint Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1A50D9392BE1E48A00C04FE8 /* AssetsSource */,
+				1A76EB2C2BAC8A5F00CC2EAF /* Bundles */,
+				1AF985D22BA7133E00149F3F /* FiveMint-Watch-App-Info.plist */,
+				1A88F7AB2BA6F13E003D6C2B /* FiveMintApp.swift */,
+				1A88F7AD2BA6F13E003D6C2B /* ContentView.swift */,
+				1A7641DD2BAAC2DF00E6EB0B /* CardView.swift */,
+				1A7641DB2BAAC2DA00E6EB0B /* Card.swift */,
+				1A7641DF2BAAC33A00E6EB0B /* ReminderViewModel.swift */,
+				1A7641D92BAAC1DC00E6EB0B /* ExtensionDelegate.swift */,
+				1A88F7AF2BA6F13F003D6C2B /* Assets.xcassets */,
+				1A88F7B12BA6F13F003D6C2B /* Preview Content */,
+			);
+			path = "FiveMint Watch App";
+			sourceTree = "<group>";
+		};
+		1A88F7B12BA6F13F003D6C2B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1A88F7B22BA6F13F003D6C2B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A88F79F2BA6F13E003D6C2B /* FiveMint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A88F7BA2BA6F13F003D6C2B /* Build configuration list for PBXNativeTarget "FiveMint" */;
+			buildPhases = (
+				1A88F79E2BA6F13E003D6C2B /* Resources */,
+				1A88F7B92BA6F13F003D6C2B /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A88F7A92BA6F13E003D6C2B /* PBXTargetDependency */,
+			);
+			name = FiveMint;
+			productName = FiveMint;
+			productReference = 1A88F7A02BA6F13E003D6C2B /* FiveMint.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		1A88F7A52BA6F13E003D6C2B /* FiveMint Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A88F7B62BA6F13F003D6C2B /* Build configuration list for PBXNativeTarget "FiveMint Watch App" */;
+			buildPhases = (
+				1A88F7A22BA6F13E003D6C2B /* Sources */,
+				1A88F7A32BA6F13E003D6C2B /* Frameworks */,
+				1A88F7A42BA6F13E003D6C2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FiveMint Watch App";
+			productName = "FiveMint Watch App";
+			productReference = 1A88F7A62BA6F13E003D6C2B /* FiveMint Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A88F79A2BA6F13E003D6C2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					1A88F79F2BA6F13E003D6C2B = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					1A88F7A52BA6F13E003D6C2B = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 1A88F79D2BA6F13E003D6C2B /* Build configuration list for PBXProject "FiveMint" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A88F7992BA6F13E003D6C2B;
+			productRefGroup = 1A88F7A12BA6F13E003D6C2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A88F79F2BA6F13E003D6C2B /* FiveMint */,
+				1A88F7A52BA6F13E003D6C2B /* FiveMint Watch App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A88F79E2BA6F13E003D6C2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A88F7A42BA6F13E003D6C2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A50D93A2BE1E48A00C04FE8 /* AssetsSource in Resources */,
+				1A88F7B32BA6F13F003D6C2B /* Preview Assets.xcassets in Resources */,
+				1A88F7B02BA6F13F003D6C2B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A88F7A22BA6F13E003D6C2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A7641E02BAAC33A00E6EB0B /* ReminderViewModel.swift in Sources */,
+				1A7641DA2BAAC1DC00E6EB0B /* ExtensionDelegate.swift in Sources */,
+				1A88F7AE2BA6F13E003D6C2B /* ContentView.swift in Sources */,
+				1A88F7AC2BA6F13E003D6C2B /* FiveMintApp.swift in Sources */,
+				1A7641DC2BAAC2DA00E6EB0B /* Card.swift in Sources */,
+				1A7641DE2BAAC2DF00E6EB0B /* CardView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A88F7A92BA6F13E003D6C2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A88F7A52BA6F13E003D6C2B /* FiveMint Watch App */;
+			targetProxy = 1A88F7A82BA6F13E003D6C2B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1A88F7B42BA6F13F003D6C2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A88F7B52BA6F13F003D6C2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		1A88F7B72BA6F13F003D6C2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FiveMint Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 957M3XVJX6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FiveMint-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "5mint timer";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sage-p.FiveMint2.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		1A88F7B82BA6F13F003D6C2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"FiveMint Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = 957M3XVJX6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FiveMint-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "5mint timer";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sage-p.FiveMint2.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		1A88F7BB2BA6F13F003D6C2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 957M3XVJX6;
+				INFOPLIST_KEY_CFBundleDisplayName = "5mint timer!";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sage-p.FiveMint2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1A88F7BC2BA6F13F003D6C2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 957M3XVJX6;
+				INFOPLIST_KEY_CFBundleDisplayName = "5mint timer!";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "sage-p.FiveMint2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A88F79D2BA6F13E003D6C2B /* Build configuration list for PBXProject "FiveMint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A88F7B42BA6F13F003D6C2B /* Debug */,
+				1A88F7B52BA6F13F003D6C2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A88F7B62BA6F13F003D6C2B /* Build configuration list for PBXNativeTarget "FiveMint Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A88F7B72BA6F13F003D6C2B /* Debug */,
+				1A88F7B82BA6F13F003D6C2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A88F7BA2BA6F13F003D6C2B /* Build configuration list for PBXNativeTarget "FiveMint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A88F7BB2BA6F13F003D6C2B /* Debug */,
+				1A88F7BC2BA6F13F003D6C2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A88F79A2BA6F13E003D6C2B /* Project object */;
+}

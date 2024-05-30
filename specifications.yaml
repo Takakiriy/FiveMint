@@ -1,0 +1,64 @@
+リファレンス:
+    本体:  #ref: ${GitHub}/MyPrivateCode/Swift/FiveMint
+    WatchOS:  #search: Xcode WatchOS
+    実装方法:
+        1st:  #// 基本形  #ref: ${GitHub}/MyPrivateCode/Swift/watch/1st/watch1-15.3
+        CardView:  #ref: ${GitHub}/MyPrivateCode/Swift/watch/2nd/CardView-15.3
+        LocalNotification:  #// ローカル通知  #ref: ${GitHub}/MyPrivateCode/Swift/watch/2nd/LocalNotification-15.3
+    ユーザー通知: #search:
+    振動, 効果音: #search:
+    通知メッセージ:  #search: Xcode 通知
+    常にアプリを表示する: #search:
+コール ツリー:
+    View:  #// Visual and touch event
+        # struct ContentView: View {
+        #     let  card = self.getCard(index, reminder)
+        getCard:
+            # func  getCard(_ index: Int, _ reminderOrNil: EKReminder?) -> Card {
+        #     CardView(card: card,
+        #         .modifyCardView(self, card)
+        modifyCardView:
+            # func  modifyCardView(_ cardView: ModifyCardViewObject.Content, _ card: Card) -> some View {
+        # viewModel.loadReminders()
+        loadReminders:
+        # @State private var  defaultDescription = ["❗️（しなくては）", "😆（したい）"
+        onTapCard: #🌟  #focus: cardSliceSeconds,  intervalSeconds  #// Touch event
+            # .onTapGesture {self.onTapCard(card)}
+            # func  onTapCard(_ card: Card) {
+            #     WKInterfaceDevice.current().play(.start)
+            play:
+            #     self.selectedCardIndex = card.index
+            #     self.scheduleNotification()
+            scheduleNotification:
+                # func  scheduleNotification() {
+                #     let  reminder = self.viewModel.reminders[self.selectedCardIndex]
+                #     self.scheduleUserNotification(
+                #         title: "🔶\(reminderTitle)",
+                #         let  timeInterval = TimeInterval(-passedSeconds + cardSliceSeconds * notificationIndex0)
+                #         let  timeInterval = TimeInterval(-passedSeconds + cardSliceSeconds * notificationIndex0 + intervalSeconds)
+                scheduleUserNotification:
+                    # func  scheduleUserNotification(title: String, subtitle: String, body: String,
+                    #     let  content = UNMutableNotificationContent()
+                    #     let  trigger = UNTimeIntervalNotificationTrigger(timeInterval:
+                    #     let  requestPrepare = UNNotificationRequest(identifier: lastNotificationID, content: content, trigger: trigger)
+                    UNNotificationRequest:
+                        # UNUserNotificationCenter.current().add(requestPrepare)
+                        #     #// 時間になったら #search: userNotificationCenter
+            #     self.doResetCount()
+            doResetCount:
+            #     self.onResume()
+            #     self.title = self.getTitle()
+    userNotificationCenter:  #// 時間になったら
+        # func userNotificationCenter(_ center: UNUserNotificationCenter,
+        #     WKInterfaceDevice.current().play(.success)
+        play:
+    onResume:
+        # func  onResume() {
+        #     self.notificationDateTime = Calendar.current.date(
+        #     self.remainingSeconds = Int(self.notificationDateTime.timeIntervalSinceNow)
+        #     self.countDownDisplayLastDateTime = ContentView.getNextAODDateTimeFromNow()
+ハート🩵アイコン:
+    ベース: #ref: https://www.shoshinsha-design.com/  デザイナー：eshu
+        #ref: ${my_images}/2024/20171112_hearts_icon.svg
+    加工サイト: #ref: https://boxy-svg.com
+    加工後:  #ref: ${my_images}/2024/FiveMintIcon.svg
