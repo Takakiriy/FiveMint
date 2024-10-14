@@ -46,7 +46,7 @@ struct ContentView: View {
     }
 
     @State private var  defaultTitle = ["〜をきれいにする", "ゆっくりする、ねる"]
-    @State private var  defaultDescription = ["❗️（しなくては）", "😆（したい）", "💿（IT）"]
+    @State private var  defaultDescription = ["❗️（しなくては）", "😆（したい）"]
         // This also debug print aera.
 
     func  getCard(_ index: Int, _ reminderOrNil: EKReminder?) -> Card {
@@ -95,7 +95,7 @@ struct ContentView: View {
             self.notificationDateTime = Calendar.current.date(byAdding: .second, value: cardSliceSeconds, to: nowAtStart)!
             passedSeconds = 0
         } else {
-            passedSeconds = self.resetCount - Int(self.notificationDateTime.timeIntervalSinceNow)
+            passedSeconds = (self.resetCount - Int(self.notificationDateTime.timeIntervalSinceNow)) % self.resetCount
             self.lastNotificationID = ""
         }
         let  decimal: TimeInterval = -nowAtStart.timeIntervalSinceNow  // decimal is plus value
@@ -104,62 +104,25 @@ struct ContentView: View {
             if granted  &&  self.lastNotificationID == "" {
                 notifications.removeAllPendingNotificationRequests()
                 notifications.removeAllDeliveredNotifications()
-                let  repeatCardsCount = max(self.viewModel.reminders.count, self.defaultTitle.count)
                 let  maxNotificationRequestCount = 62  // iOS 12 = 64
-                let  catdNotificationCount = 6  // Ready(1)(2), start(3)(4) and knock x2
-                let  reminderLoopCount = maxNotificationRequestCount / repeatCardsCount / catdNotificationCount
+                let  catdNotificationCount = 6  // knock x2, Ready(1)(2) and start(3)(4)
+                let  reminderLoopCount = maxNotificationRequestCount / catdNotificationCount
                 let  firstNextIndex = self.selectedCardIndex
                 var  isFirstCard = true
 
                 for reminderLoopIndex in 0..<reminderLoopCount {
-                    for reminderIndex in 0..<repeatCardsCount {
-                        let  notificationIndex0 = reminderLoopIndex * repeatCardsCount + reminderIndex - firstNextIndex
-                        if notificationIndex0 < 0 {
-                            continue
-                        }
-                        let  reminderTitle: String
-                        if self.selectedCardIndex < self.viewModel.reminders.count {
-                            let  reminder = self.viewModel.reminders[self.selectedCardIndex]  // 手動カード切り替えの場合
-                            // let  reminder = self.viewModel.reminders[reminderIndex]  // 自動カード切り替えの場合
-                            reminderTitle = reminder.title!
-                        } else {
-                            reminderTitle = self.defaultTitle[self.selectedCardIndex]
-                        }
-                        if !(isFirstCard) {
-                            let  nextTime = TimeInterval(-passedSeconds + cardSliceSeconds * notificationIndex0)
-                            if nextTime > 0 {
-
-                                if ( nextTime - 2 > 0 ) {
-                                    self.scheduleUserNotification(
-                                        title: "\(reminderTitle)",
-                                        subtitle: "knock",
-                                        body: "knock",
-                                        timeInterval: nextTime - 3,
-                                        nowAtStart: nowAtStart,
-                                        decimal: decimal)
-                                }
-
-                                self.scheduleUserNotification(
-                                    title: "🔶\(reminderTitle)",
-                                    subtitle: "5mint(1)",
-                                    body: "次のタスク",
-                                    timeInterval: nextTime,
-                                    nowAtStart: nowAtStart,
-                                    decimal: decimal)
-
-                                self.scheduleUserNotification(
-                                    title: "🔶\(reminderTitle)",
-                                    subtitle: "5mint(2)",
-                                    body: "次のタスク",
-                                    timeInterval: nextTime + 0.62,
-                                    nowAtStart: nowAtStart,
-                                    decimal: decimal)
-                            }
-                        }
-                        let  nextTime = TimeInterval(-passedSeconds + cardSliceSeconds * notificationIndex0 + intervalSeconds)
+                    let  reminderTitle: String
+                    if self.selectedCardIndex < self.viewModel.reminders.count {
+                        let  reminder = self.viewModel.reminders[self.selectedCardIndex]  // 手動カード切り替えの場合
+                        // let  reminder = self.viewModel.reminders[reminderIndex]  // 自動カード切り替えの場合
+                        reminderTitle = reminder.title!
+                    } else {
+                        reminderTitle = self.defaultTitle[self.selectedCardIndex]
+                    }
+                    if isFirstCard == false {
+                        let  nextTime = TimeInterval(-passedSeconds + cardSliceSeconds * reminderLoopIndex)
+print("@@@1 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIndex)")
                         if nextTime > 0 {
-                            let  isLast = (reminderLoopIndex == reminderLoopCount - 1  &&
-                                reminderIndex == repeatCardsCount - 1)
 
                             if ( nextTime - 2 > 0 ) {
                                 self.scheduleUserNotification(
@@ -172,37 +135,67 @@ struct ContentView: View {
                             }
 
                             self.scheduleUserNotification(
-                                title: "🟢\(reminderTitle)",
-                                subtitle: "5mint(3)",
-                                body: "始めましょう！",
+                                title: "🔶\(reminderTitle)",
+                                subtitle: "5mint(1)",
+                                body: "次のタスク",
                                 timeInterval: nextTime,
                                 nowAtStart: nowAtStart,
                                 decimal: decimal)
 
                             self.scheduleUserNotification(
-                                title: "🟢\(reminderTitle)",
-                                subtitle: (isLast) ? "5mint(9)" : "5mint(4)",
-                                body: "始めましょう！",
-                                timeInterval: nextTime + 0.66,
+                                title: "🔶\(reminderTitle)",
+                                subtitle: "5mint(2)",
+                                body: "次のタスク",
+                                timeInterval: nextTime + 0.62,
                                 nowAtStart: nowAtStart,
                                 decimal: decimal)
-                                // 音だけにすると、時計表示のときに通知されません
-                                // 2回登録している理由は、時計表示の時に 2回鳴らすことで他の通知と区別できるようにするためです。
                         }
-                        isFirstCard = false
                     }
+                    let  nextTime = TimeInterval(-passedSeconds + cardSliceSeconds * reminderLoopIndex + intervalSeconds)
+print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIndex)")
+                    if nextTime > 0 {
+                        let  isLast = (reminderLoopIndex == reminderLoopCount - 1  &&
+                            reminderLoopIndex == reminderLoopCount - 1)
+
+                        if ( nextTime - 2 > 0 ) {
+                            self.scheduleUserNotification(
+                                title: "\(reminderTitle)",
+                                subtitle: "knock",
+                                body: "knock",
+                                timeInterval: nextTime - 3,
+                                nowAtStart: nowAtStart,
+                                decimal: decimal)
+                        }
+
+                        self.scheduleUserNotification(
+                            title: "🟢\(reminderTitle)",
+                            subtitle: "5mint(3)",
+                            body: "始めましょう！",
+                            timeInterval: nextTime,
+                            nowAtStart: nowAtStart,
+                            decimal: decimal)
+
+                        self.scheduleUserNotification(
+                            title: "🟢\(reminderTitle)",
+                            subtitle: "5mint(4)",  // "5mint(9)" にすると、なぜか下記（最後）の "5mint(9)" が鳴らない
+                            body: "始めましょう！",
+                            timeInterval: nextTime + 0.66,
+                            nowAtStart: nowAtStart,
+                            decimal: decimal)
+                            // 音だけにすると、時計表示のときに通知されません
+                            // 2回登録している理由は、時計表示の時に 2回鳴らすことで他の通知と区別できるようにするためです。
+                        if isLast {  // 最後は 3回鳴らす
+                            self.scheduleUserNotification(
+                                title: "🟢終了",
+                                subtitle: "5mint(9)",
+                                body: "タイマー終了",
+                                timeInterval: nextTime + 0.66 * 2,
+                                nowAtStart: nowAtStart,
+                                decimal: decimal)
+                        }
+                    }
+                    isFirstCard = false
                 }
-                // let action = UNNotificationAction(
-                //     identifier: "ACTION_IDENTIFIER",
-                //     title: "Action Title",
-                //     options: [.foreground])
-                // 
-                // let directOpenCategory = "directOpenCategory"
-                // let category = UNNotificationCategory(
-                //     identifier: directOpenCategory,
-                //     actions: [],  // [action]
-                //     intentIdentifiers: [],
-                //     options: [])
             } else if let error = error {
                 print("ERROR in scheduleNotification: \(error.localizedDescription)")
             }
@@ -219,7 +212,6 @@ struct ContentView: View {
         content.body = body  // NSString.localizedUserNotificationString(forKey: "Title", arguments: nil)
         content.sound = UNNotificationSound.default
         // content.categoryIdentifier = directOpenCategory
-print(timeInterval)
 
         let  trigger = UNTimeIntervalNotificationTrigger(timeInterval:
             timeInterval + nowAtStart.timeIntervalSinceNow - decimal, repeats: false)

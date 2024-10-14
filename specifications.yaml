@@ -50,7 +50,7 @@
             #     self.title = self.getTitle()
     userNotificationCenter:  #// 時間になったら
         # func userNotificationCenter(_ center: UNUserNotificationCenter,
-        #     WKInterfaceDevice.current().play(.success)
+        _:    WKInterfaceDevice.current().play(.success)
         play:
     onResume:
         # func  onResume() {
