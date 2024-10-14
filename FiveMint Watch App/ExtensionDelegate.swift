@@ -52,10 +52,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, UNUserNotificationCenter
 
                     WKInterfaceDevice.current().play(.click)
                 } else if notificationType == "ready" {
-                    WKInterfaceDevice.current().play(.directionDown)
-                } else if notificationType == "start" {
                     WKInterfaceDevice.current().play(.success)
-                } else {
+                } else if notificationType == "start" {
+                    WKInterfaceDevice.current().play(.directionDown)
+                } else {  // if notificationType == "off"
                     WKInterfaceDevice.current().play(.failure)
                 }
             }
