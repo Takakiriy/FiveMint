@@ -21,7 +21,7 @@
             # func  modifyCardView(_ cardView: ModifyCardViewObject.Content, _ card: Card) -> some View {
         # viewModel.loadReminders()
         loadReminders:
-        # @State private var  defaultDescription = ["❗️（しなくては）", "😆（したい）"
+        # @State private var  defaultDescription = ["😆（したい）", "❗️（しなくては←目的）"]
         onTapCard: #🌟  #focus: cardSliceSeconds,  intervalSeconds  #// Touch event
             # .onTapGesture {self.onTapCard(card)}
             # func  onTapCard(_ card: Card) {

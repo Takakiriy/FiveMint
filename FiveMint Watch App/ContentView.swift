@@ -46,7 +46,7 @@ struct ContentView: View {
     }
 
     @State private var  defaultTitle = ["ゆっくりする、ねる", "〜をきれいにする"]
-    @State private var  defaultDescription = ["😆（したい）", "❗️（しなくては）"]
+    @State private var  defaultDescription = ["😆（したい）", "❗️（しなくては←目的）"]
         // This also debug print aera.
 
     func  getCard(_ index: Int, _ reminderOrNil: EKReminder?) -> Card {
