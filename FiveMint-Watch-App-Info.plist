@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>NSRemindersFullAccessUsageDescription</key>
-	<string>OK?</string>
+	<string>5mint Timer は「やることリスト」として、リマインダーのタイトルを一覧表示します</string>
 </dict>
 </plist>

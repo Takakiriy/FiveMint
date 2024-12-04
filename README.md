@@ -15,8 +15,15 @@
 
 ### 初期設定
 
-5mint Timer を常に表示するように Apple Watch を設定してください。
-5mint Timer が表示されていると、通知音がその他一般の通知音と区別できます。
+初めて起動すると、通知されることを許可するか聞いてきます。タイマーが動作中に限り 5分ごとに通知されるので、スクロールさせて「許可」を選んでください。また、リマインダーの内容にアクセスしていいか聞いてくるので、表示されている利用目的を読んで「許可」を選んでください。詳しくは下記の プライバシー ポリシー を参照してください。
+
+<img src="./FiveMint%20Watch%20App/AssetsSource/Confirm-1.png" width="150px" alt="画面"/>&nbsp;
+<img src="./FiveMint%20Watch%20App/AssetsSource/Confirm-2.png" width="150px" alt="画面"/>&nbsp;
+<img src="./FiveMint%20Watch%20App/AssetsSource/Confirm-3.png" width="150px" alt="画面"/>&nbsp;
+<img src="./FiveMint%20Watch%20App/AssetsSource/Confirm-4.png" width="150px" alt="画面"/>&nbsp;
+
+
+5mint Timer を常に表示するように Apple Watch を設定してください。 5mint Timer が表示されていると、通知音がその他一般の通知音と区別できます。
 
 - Apple Watch >> 設定 >> 一般 >> 時計に戻る >> 5mint timer >> カスタム >> 1時間後
 
@@ -37,8 +44,13 @@
 
 #### データの収集
 
-- 本アプリは、リマインダーのデータを読み込みますが、そのまま表示するためだけに使用します
-- リマインダー以外のデータは読み込みません
+- 5mint Timer は、リマインダーのタイトル部分を一覧表示します
+- リマインダーのタイトル以外のデータは読み込みません
 - 本アプリから外部へ、どんなデータも転送することはありません
 - 本アプリは、リマインダーが使う iPhone との近距離通信以外に、ネットワークにアクセスしません
 - 広告表示モジュールは使っていません
+
+
+### ユーザー サポート
+
+何かお困りの際は [FineMint GitHub Issue](https://github.com/Takakiriy/FiveMint/issues) へ質問をしてください。
