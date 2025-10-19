@@ -13,7 +13,12 @@ struct ContentView: View {
                 let  widthScale = 0.9
                 let  heightScale = 0.35
                 List {
-                    ForEach(Array(self.viewModel.reminders.enumerated()), id: \.element.calendarItemIdentifier) { index, reminder in
+                    ForEach(Array(self.viewModel.reminders.sorted { a, b in
+                                let  shiftPriorityA = (a.priority == 0) ? 10 : a.priority
+                                let  shiftPriorityB = (b.priority == 0) ? 10 : b.priority
+                                return  shiftPriorityA < shiftPriorityB
+                            }.enumerated()), id: \.element.calendarItemIdentifier) { index, reminder in
+
                         let  card = self.getCard(index, reminder)
 
                         CardView(card: card,
@@ -55,7 +60,7 @@ struct ContentView: View {
             return  Card(
                 index: index,
                 calendarItemIdentifier: reminder.calendarItemIdentifier,
-                title: reminder.title,
+                title: reminder.title ?? "",
                 isDefaultTitle: false,
                 description: defaultDescription.element(index, default_: ""))
         } else {  // nil
@@ -107,7 +112,6 @@ struct ContentView: View {
                 let  maxNotificationRequestCount = 62  // iOS 12 = 64
                 let  catdNotificationCount = 6  // knock x2, Ready(1)(2) and start(3)(4)
                 let  reminderLoopCount = maxNotificationRequestCount / catdNotificationCount
-                let  firstNextIndex = self.selectedCardIndex
                 var  isFirstCard = true
 
                 for reminderLoopIndex in 0..<reminderLoopCount {
