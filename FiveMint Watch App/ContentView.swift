@@ -46,6 +46,7 @@ struct ContentView: View {
                 viewModel.loadReminders()
             }
             .navigationTitle(self.title)
+            .toolbarForegroundStyle(.cyan, for: .navigationBar)
             .onReceive(timer) { _ in self.onTimer()}
         }
     }
@@ -89,6 +90,7 @@ struct ContentView: View {
 
     @State private var  lastNotificationID = ""
     @State private var  notificationDateTime = Date()
+    @State private var  previousTapDateTime = getOldDate()
     @State private var  countDownDisplayLastDateTime = /*self.*/ getNextAODDateTimeFromNow()
 
     func  scheduleNotification(_ startOrContinue: Schedule) {
@@ -125,7 +127,6 @@ struct ContentView: View {
                     }
                     if isFirstCard == false {
                         let  nextTime = TimeInterval(-passedSeconds + cardSliceSeconds * reminderLoopIndex)
-print("@@@1 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIndex)")
                         if nextTime > 0 {
 
                             if ( nextTime - 2 > 0 ) {
@@ -147,7 +148,7 @@ print("@@@1 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
                                 decimal: decimal)
 
                             self.scheduleUserNotification(
-                                title: "🔶\(reminderTitle)",
+                                title: "\(reminderTitle)",
                                 subtitle: "5mint(2)",
                                 body: "次のタスク",
                                 timeInterval: nextTime + 0.62,
@@ -156,7 +157,7 @@ print("@@@1 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
                         }
                     }
                     let  nextTime = TimeInterval(-passedSeconds + cardSliceSeconds * reminderLoopIndex + intervalSeconds)
-print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIndex)")
+
                     if nextTime > 0 {
                         let  isLast = (reminderLoopIndex == reminderLoopCount - 1  &&
                             reminderLoopIndex == reminderLoopCount - 1)
@@ -180,7 +181,7 @@ print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
                             decimal: decimal)
 
                         self.scheduleUserNotification(
-                            title: "🟢\(reminderTitle)",
+                            title: "\(reminderTitle)",
                             subtitle: "5mint(4)",  // "5mint(9)" にすると、なぜか下記（最後）の "5mint(9)" が鳴らない
                             body: "始めましょう！",
                             timeInterval: nextTime + 0.66,
@@ -188,6 +189,7 @@ print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
                             decimal: decimal)
                             // 音だけにすると、時計表示のときに通知されません
                             // 2回登録している理由は、時計表示の時に 2回鳴らすことで他の通知と区別できるようにするためです。
+
                         if isLast {  // 最後は 3回鳴らす
                             self.scheduleUserNotification(
                                 title: "🟢終了",
@@ -200,6 +202,25 @@ print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
                     }
                     isFirstCard = false
                 }
+
+                let  messages = [
+                    ["はじめは作業と", "休みを交互に🩵"],
+                    ["ゆっくり作業", "しましょう🎈"],
+                    ["1回延長するのは", "ありです☝️"]
+                ]
+                let  message = messages[Int.random(in: 0..<3)]
+                guard let  tenSecondsFromPreviousTap = Calendar.current.date(byAdding: .second, value: +10, to: self.previousTapDateTime) else {return}
+
+                // if nowAtStart >= tenSecondsFromPreviousTap {  // Use cueent notification. But this code clears the notification by unscheduleNotification.
+                    self.scheduleUserNotification(
+                        title: message[0],
+                        subtitle: "advice",
+                        body: message[1],
+                        timeInterval: TimeInterval(3),
+                        nowAtStart: nowAtStart,
+                        decimal: decimal)
+                    self.previousTapDateTime = nowAtStart
+                // }
             } else if let error = error {
                 print("ERROR in scheduleNotification: \(error.localizedDescription)")
             }
@@ -216,6 +237,7 @@ print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
         content.body = body  // NSString.localizedUserNotificationString(forKey: "Title", arguments: nil)
         content.sound = UNNotificationSound.default
         // content.categoryIdentifier = directOpenCategory
+        guard timeInterval > 0 else { return }
 
         let  trigger = UNTimeIntervalNotificationTrigger(timeInterval:
             timeInterval + nowAtStart.timeIntervalSinceNow - decimal, repeats: false)
@@ -244,12 +266,19 @@ print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
 
     @State private var  title: String = "5:00"
     @State private var  remainingSeconds: Int = 300
+
+    // 鳴らすまでの時間
+    //     resetCount: 時計画面のときは 10秒で通知が消え、次の通知を表示します。10秒以内ならタイトルが表示されず 2件 3件になります。
+    //     startingInterval: アプリ画面のときは 5秒で通知が消えます。消える前でも次の通知でタイトルが表示されます
+    // リリース用設定
     let  resetCount: Int = 300
     let  startingInterval: Int = 60
-    // let  resetCount: Int = 26  // 時計画面のときは 10秒で通知が消え、次の通知を表示します。10秒以内ならタイトルが表示されず 2件 3件になります。
-    // let  startingInterval: Int = 13   // アプリ画面のときは 5秒で通知が消えます。消える前でも次の通知でタイトルが表示されます
-    // let  resetCount: Int = 8  // Very fast test
-    // let  startingInterval: Int = 6   // Very fast test
+    // デバッグ用、早めに鳴らす設定。userNotificationCenter(willPresent) が2回呼ばれます
+    // let  resetCount: Int = 26
+    // let  startingInterval: Int = 13
+    // デバッグ用、かなり早く鳴らす設定。userNotificationCenter(willPresent) が3回呼ばれます
+    // let  resetCount: Int = 8
+    // let  startingInterval: Int = 6
     let  timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     func  onTimer() {
@@ -335,7 +364,7 @@ print("@@@2 \(nextTime), \(passedSeconds), \(cardSliceSeconds), \(reminderLoopIn
 
     static func  getNextAODDateTimeFromNow() -> Date {  // AOD = Always-On Display
         let  now = Date()
-    
+
         return  Calendar.current.date(byAdding: .second, value: 4, to: now)!
     }
 }
@@ -367,6 +396,12 @@ extension  Array {
         }
         return  self[index]
     }
+}
+
+func  getOldDate() -> Date {
+    let  now = Date()
+    let  oneMinuteBefore = Calendar.current.date(byAdding: .minute, value: -1, to: now)!
+    return  oneMinuteBefore
 }
 
 #Preview {

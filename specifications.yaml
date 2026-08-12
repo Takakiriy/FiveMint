@@ -10,6 +10,13 @@
     通知メッセージ:  #search: Xcode 通知
     常にアプリを表示する: #search:
 コール ツリー:
+    （主な処理）:
+        通知内容: reminderTitle
+        タップしたとき: onTapCard
+        時間になったとき:
+            フォアグランドなら: userNotificationCenter(willPresent)
+            バックグラウンドなら: (通知の種類はシステムの既定になります)
+        デバッグ用の時間設定: startingInterval
     View:  #// Visual and touch event
         # struct ContentView: View {
         #     let  card = self.getCard(index, reminder)
@@ -30,8 +37,9 @@
             #     self.selectedCardIndex = card.index
             #     self.scheduleNotification()
             scheduleNotification:
-                # func  scheduleNotification() {
+                # func  scheduleNotification(
                 #     let  reminder = self.viewModel.reminders[self.selectedCardIndex]
+                #     let  intervalSeconds: Int = self.startingInterval
                 #     self.scheduleUserNotification(
                 #         title: "🔶\(reminderTitle)",
                 #         let  timeInterval = TimeInterval(-passedSeconds + cardSliceSeconds * notificationIndex0)
@@ -48,7 +56,7 @@
             doResetCount:
             #     self.onResume()
             #     self.title = self.getTitle()
-    userNotificationCenter:  #// 時間になったら
+    userNotificationCenter(willPresent):  #// 時間になったときにフォアグランドになっていたら呼ばれ、通知をどう見せるかの設定を返します
         # func userNotificationCenter(_ center: UNUserNotificationCenter,
         _:    WKInterfaceDevice.current().play(.success)
         play:
